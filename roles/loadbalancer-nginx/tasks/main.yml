@@ -1,0 +1,13 @@
+---
+# tasks file for roles/loadbalancer-nginx
+- name: configure backend server
+  template:
+    src: backend.j2
+    dest: "/etc/nginx/conf.d/backend.conf"
+  loop: "{{ loadbalance }}"
+  notify: restart nginx
+- name: configure proxy
+  template:
+    src: proxy.j2
+    dest: "/etc/nginx/default.d/proxy.conf"
+  notify: restart nginx

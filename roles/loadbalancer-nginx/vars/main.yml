@@ -1,0 +1,6 @@
+---
+# vars file for roles/loadbalancer-nginx
+loadbalance:
+ - servers:
+    - server1
+    - server2

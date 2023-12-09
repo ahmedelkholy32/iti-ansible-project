@@ -1,0 +1,19 @@
+---
+###Playbook uses 3 roles to create virtual hosting server for 3 websites
+- name: Deploy system
+  hosts: httpdservers
+  become: true
+  gather_facts: false
+  roles:
+    - installpackages
+    - configurehttpd
+    - managecontent
+### Install nginx server and configure it to make loadbalancer
+- name: install nginx and configure it
+  hosts: nginxservers
+  become: true
+  gather_facts: false
+  roles:
+    - install-nginx
+    - configure-nginx
+    - loadbalancer-nginx

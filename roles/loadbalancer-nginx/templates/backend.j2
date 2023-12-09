@@ -1,0 +1,5 @@
+upstream backend {
+{% for server in item.servers %}
+	server {{ server }};
+{% endfor %}
+}

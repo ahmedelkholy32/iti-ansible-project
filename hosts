@@ -1,0 +1,4 @@
+[nginxservers]
+nginx
+[httpdservers]
+server[1:2]

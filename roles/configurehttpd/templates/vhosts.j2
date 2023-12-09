@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+	ServerName {{ item.name }}
+        DocumentRoot {{ item.dir }}
+{% if item.aliases is defined %}
+	{% for alias in item.aliases %}
+		Alias {{ alias.name}} {{ alias.dir }}
+        {% endfor %}
+{% endif %}
+</VirtualHost>
+
+<Directory {{ item.dir }}>
+	AllowOverride All
+        Require all granted
+</Directory>

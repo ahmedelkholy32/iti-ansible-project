@@ -1,0 +1,7 @@
+---
+# handlers file for roles/install-nginx
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes

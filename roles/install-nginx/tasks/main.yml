@@ -1,0 +1,8 @@
+---
+# tasks file for roles/install-nginx
+- name: install nginx
+  yum:
+    name: nginx
+    state: latest
+  notify: start nginx
+

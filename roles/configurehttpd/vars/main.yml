@@ -1,0 +1,17 @@
+---
+# vars file for roles/configurehttpd
+sites:
+ - name: ahmed.com
+   dir: /var/www/ahmed.com
+   user: ahmed_admin
+   aliases:
+    - name: priv1
+      dir: /var/www/ahmed.com/priv1
+    - name: priv2
+      dir: /var/www/ahmed.com/priv2
+ - name: mohamed.com
+   user: mohamed_admin
+   dir:  /var/www/mohamed.com
+ - name: ali.com
+   user: ali_admin
+   dir: /var/www/ali.com

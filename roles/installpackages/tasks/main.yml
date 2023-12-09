@@ -1,0 +1,11 @@
+---
+# tasks file for roles/installpackages
+- name: Install all packages
+  yum:
+   name: 
+    - httpd
+    - php
+    - php-common
+    - php-pecl-apcu
+    - php-cli
+    - php-mysqlnd

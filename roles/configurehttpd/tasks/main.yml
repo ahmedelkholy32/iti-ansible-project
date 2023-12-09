@@ -1,0 +1,19 @@
+---
+# tasks file for roles/configurehttpd
+
+- name: Create site user
+  user:
+   name: "{{ item.user }}"
+   home: "{{ item.dir }}"
+   comment: "{{ item.name }} admin user"
+   shell: /bin/bash
+   state: present
+  loop: "{{ sites }}"
+
+- name: Configure VHosts
+  template:
+   src: templates/vhosts.j2
+   dest: /etc/httpd/conf.d/{{ item.name}}.conf
+   mode: 0444
+  loop: "{{ sites }}"
+  notify: Restart httpd
